@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="mainUI.Assets.Pages.LogPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:mainUI.Assets.Pages"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="600"
+             Height="auto" Grid.Column="0" Loaded="UserControl_Loaded" Width="1269.81">
+    <materialDesign:TransitioningContent  OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.5}" Margin="0,0,10,0">
+
+        <Grid HorizontalAlignment="Left" Width="1263">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="623"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+
+
+            <Grid Background="White" Grid.Column="0" Height="auto" Width="auto">
+
+
+                <Label Content="Işlem Geçmişi" Style="{StaticResource ResourceKey=customFont}" FontSize="25" 
+                                 FontWeight="Bold" Foreground="#FF7F76AA" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+
+                <DataGrid x:Name="customers" ItemsSource="{Binding}" ColumnWidth="*" 
+                  IsReadOnly="True"
+                  HorizontalAlignment="Left" Margin="10,149,0,10" Width="auto" Height="auto" Foreground="Black" AlternatingRowBackground="#FFD4D4D4" AutoGenerateColumns="False">
+
+
+                    <DataGrid.Columns >
+                        <DataGridTextColumn Header="Saat" Binding="{Binding Clock}"/>
+                        <DataGridTextColumn Header="Ad Soyad" Binding="{Binding CustomerOne}"/>
+                        <DataGridTextColumn Header="Önceki Isım" Binding="{Binding BeforeCustomerOne}"/>
+                        <DataGridTextColumn Header="Işlem" Binding="{Binding psOne}"/>
+                        <DataGridTextColumn Header="Önceki Işlem" Binding="{Binding BeforepsOne}"/>
+
+                        <DataGridTextColumn Header="Ad Soyad" Binding="{Binding CustomerTwo}"/>
+                        <DataGridTextColumn Header="Önceki Isım" Binding="{Binding BeforeCustomerTwo}"/>
+                        <DataGridTextColumn Header="Işlem" Binding="{Binding psTwo}"/>
+                        <DataGridTextColumn Header="Önceki Işlem" Binding="{Binding BeforepsTwo}"/>
+
+                        <DataGridTextColumn Header="Ad Soyad" Binding="{Binding CustomerThree}"/>
+                        <DataGridTextColumn Header="Önceki Isim" Binding="{Binding BeforeCustomerThree}"/>
+                        <DataGridTextColumn Header="Işlem" Binding="{Binding psThree}"/>
+                        <DataGridTextColumn Header="Önceki Işlem" Binding="{Binding BeforepsThree}"/>
+
+                        <DataGridTextColumn Header="Değişrilime tarihi" Binding="{Binding updateDate}"/>
+
+
+
+
+                    </DataGrid.Columns>
+
+
+                </DataGrid>
+
+
+            </Grid>
+
+            <Grid Margin="72,48,50,458">
+
+                <Button  x:Name="search" Content="Ara" Click="search_Click" Margin="578,52,0,10" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Button  x:Name="fullList" Content="Tüm Liste" Click="fullList_Click" Margin="664,52,0,10"  HorizontalAlignment="Left"  />
+
+                <TextBox x:Name="searchName" FontSize="22" Foreground="#FF474747" Margin="51,10,620,0" Height="74" VerticalAlignment="Top" FontWeight="Bold"/>
+
+            </Grid>
+
+        </Grid>
+
+
+
+    </materialDesign:TransitioningContent>
+
+</UserControl>
